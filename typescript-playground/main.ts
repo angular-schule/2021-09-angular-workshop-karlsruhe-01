@@ -1,1 +1,4 @@
-console.log('Hallo München, Münster & Karlsruhe! 😀')
+import { Test } from "./test";
+
+const test = new Test(42);
+
