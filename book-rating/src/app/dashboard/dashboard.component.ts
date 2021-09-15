@@ -5,11 +5,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-  constructor() { }
+  books = ['Angular', 'AngularJS', 'React'];
 
-  ngOnInit(): void {
+  constructor() {
+    setTimeout(() => this.books = ['😀'], 3000);
   }
-
 }
