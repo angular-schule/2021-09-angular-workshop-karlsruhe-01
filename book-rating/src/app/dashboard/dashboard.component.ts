@@ -22,6 +22,6 @@ export class DashboardComponent {
     isbn: '333',
     title: 'Vue.js',
     description: 'Auch toll',
-    rating: 2
+    rating: 1
   }];
 }
