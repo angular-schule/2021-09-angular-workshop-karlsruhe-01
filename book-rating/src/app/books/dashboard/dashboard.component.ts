@@ -24,4 +24,12 @@ export class DashboardComponent {
     description: 'Auch toll',
     rating: 1
   }];
+
+  doRateUp(book: Book): void {
+    console.log('+1 Buch angekommen', book);
+  }
+
+  doRateDown(book: Book): void {
+    console.log('-1 Buch angekommen', book);
+  }
 }

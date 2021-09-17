@@ -10,21 +10,12 @@
     </div>
     <p>{{ book.description }}</p>
 
-    <!--
-      Schlechte Praxis:
-      - Logik im HTML
-      - Objekte werden mutiert (verändert)
-      - SRP wird verletzt
-
-      TODO: fix me :-D
-
-    -->
     <button
       class="btn btn-secondary mr-2"
-      (click)="book.rating = book.rating - 1">-1</button>
+      (click)="doRateDown()">-1</button>
 
     <button
       class="btn btn-primary"
-      (click)="book.rating = book.rating + 1">+1</button>
+      (click)="doRateUp()">+1</button>
   </div>
 </div>
