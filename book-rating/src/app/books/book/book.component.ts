@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../shared/book';
 
 @Component({
   selector: 'br-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+  styleUrls: ['./book.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookComponent  {
 
@@ -25,5 +26,9 @@ export class BookComponent  {
   doRateDown(): void {
     this.rateDown.emit(this.book);
     // debugger
+  }
+
+  doLog(): void {
+    console.log('CD!', new Date());
   }
 }
