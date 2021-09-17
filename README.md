@@ -7,6 +7,22 @@
 **Herzlich Willkommen – und schön, dass du dabei bist!**  
 In diesem Repository findest du während des Workshops den Quelltext unserer Beispielanwendung.
 
+# 🎮 RxJS Playground
+
+Du kannst dir entweder  
+* dieses Repository per Git herunterladen und in den Ordner `rxjs-playground` wechseln<br>**oder**<br>  
+* den Code als ZIP-Datei herunterladen: [rxjs-playground.zip](https://github.com/angular-schule/2021-09-angular-workshop-karlsruhe-1/files/7185918/rxjs-playground.zip)
+
+```bash
+cd rxjs-playground
+npm install
+npm start
+```
+
+Öffne den Browser unter der URL [http://localhost:**4300**](http://localhost:4300), um die Anwendung zu sehen.
+Die Übungen befinden sich im Ordner `rxjs-playground/src/app/exercises/`.
+
+
 # ✅ Vorbereitung
 
 Damit wir gleich durchstarten können, solltest Du ein paar Vorbereitungen treffen.  
