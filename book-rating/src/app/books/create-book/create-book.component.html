@@ -2,7 +2,9 @@
 
   <div class="form-group">
     <label for="isbn">ISBN</label>
-    <input formControlName="isbn" type="text" id="isbn" class="form-control">
+    <input
+      placeholder="Bitte geben Sie eine 10-stellige ISBN ein."
+      formControlName="isbn" type="text" id="isbn" class="form-control">
 
     <div class="feedback-error" *ngIf="hasError('isbn')">
       Bitte geben Sie eine gültige ISBN an!

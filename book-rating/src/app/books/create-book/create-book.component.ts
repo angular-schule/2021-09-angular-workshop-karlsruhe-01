@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Book } from '../shared/book';
 
@@ -9,11 +9,20 @@ import { Book } from '../shared/book';
 })
 export class CreateBookComponent {
 
+  @Output()
+  create = new EventEmitter<Book>();
+
   bookForm = new FormGroup({
     isbn: new FormControl('', [Validators.required, Validators.minLength(3)]),
     title: new FormControl('', Validators.required),
     description: new FormControl('')
   });
+
+  constructor() {
+    this.bookForm.valueChanges.subscribe(
+      e => console.log(e)
+    );
+  }
 
   hasError(path: string) {
     const control = this.bookForm.get(path);
@@ -27,11 +36,7 @@ export class CreateBookComponent {
       rating: 1
     } as Book;
 
-    /// Hands on!
-    // 1. Definiere einen EventEmitter mit dem "create"
-    // 2. "Versende" das Buch
-    // 3. Empfange das Buch im Dashboard
-    // 4. Füge das Buch der Liste hinzu
+    this.create.emit(newBook);
 
     this.bookForm.reset();
   }
