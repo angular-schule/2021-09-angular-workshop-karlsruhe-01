@@ -43,6 +43,8 @@ export class CreatingComponent {
       setTimeout(() => subscriber.error('🤬'), 500);
 
     });
+
+    // 3. Subscription
     observable$.subscribe(observer);
 
     /******************************/

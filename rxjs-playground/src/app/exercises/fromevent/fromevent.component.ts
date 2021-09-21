@@ -22,7 +22,14 @@ export class FromeventComponent {
 
     /******************************/
 
-    
+    fromEvent(window, 'resize').pipe(
+      // map(() => window.innerWidth)
+      // nicht gut: map(() => magischesObject.lieferDaten())
+      map(e => (e.target as Window).innerWidth)
+
+    ).subscribe(width => this.currentWidth = width)
+
+
     /******************************/
   }
 
