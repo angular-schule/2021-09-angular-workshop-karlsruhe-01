@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, retry, switchMap, tap } from 'rxjs/operators';
 
 import { BookStoreService } from '../shared/book-store.service';
 
@@ -19,6 +19,7 @@ export class BookDetailsComponent {
     map(paramMap => paramMap.get('isbn')),
     tap(() => this.loading = true),
     switchMap(isbn => this.bs.getSingleBook(isbn!).pipe(
+      retry(3),
       catchError((e: HttpErrorResponse) => of({
         title: 'ERRRO',
         rating: '0',
