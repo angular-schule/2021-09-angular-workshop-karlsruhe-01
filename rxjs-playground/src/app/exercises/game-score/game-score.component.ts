@@ -22,7 +22,11 @@ export class GameScoreComponent {
 
     /******************************/
 
-    
+    this.score$.pipe();
+
+    this.score$.pipe();
+
+
     /******************************/
 
     this.score$.subscribe({
