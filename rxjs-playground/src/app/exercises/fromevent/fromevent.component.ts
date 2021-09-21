@@ -25,8 +25,9 @@ export class FromeventComponent {
     fromEvent(window, 'resize').pipe(
       // map(() => window.innerWidth)
       // nicht gut: map(() => magischesObject.lieferDaten())
-      map(e => (e.target as Window).innerWidth)
-
+      map(e => (e.target as Window).innerWidth),
+      debounceTime(1000),
+      startWith(999),
     ).subscribe(width => this.currentWidth = width)
 
 
