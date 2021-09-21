@@ -1,6 +1,6 @@
-<p>book-details works!</p>
+<h2>{{ (book$ | async)?.title }} - {{ (book$ | async)?.rating }}</h2>
 
-{{ isbn$ | async | json }}
+<p>{{ (book$ | async)?.description }}</p>
 
 <hr>
 
