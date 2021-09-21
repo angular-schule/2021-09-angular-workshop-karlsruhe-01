@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: DashboardComponent },
-  { path: '/:isbn', component: BookDetailsComponent }
+  { path: ':isbn', component: BookDetailsComponent }
 ];
 
 @NgModule({
