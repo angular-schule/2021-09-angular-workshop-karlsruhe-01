@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { concatMap, map, mergeMap, shareReplay, startWith, switchMap } from 'rxjs/operators';
+import { concatMap, map, mergeMap, shareReplay, startWith, switchMap, tap } from 'rxjs/operators';
 import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
@@ -10,11 +10,13 @@ import { BookStoreService } from '../shared/book-store.service';
 })
 export class BookDetailsComponent {
 
+  loading = false;
+
   book$ = this.route.paramMap.pipe(
     map(paramMap => paramMap.get('isbn')),
-    switchMap(isbn => this.bs.getSingleBook(isbn!).pipe(
-      startWith( null)
-    ))
+    tap(() => this.loading = true),
+    switchMap(isbn => this.bs.getSingleBook(isbn!)),
+    tap(() => this.loading = false),
   )
 
   constructor(private route: ActivatedRoute,
