@@ -18,9 +18,21 @@ export const initialState: State = {
 export const reducer = createReducer(
   initialState,
 
-  on(BookActions.loadBooks, state => state),
-  on(BookActions.loadBooksSuccess, (state, action) => state),
-  on(BookActions.loadBooksFailure, (state, action) => state),
+  on(BookActions.loadBooks, state => ({
+    ...state,
+    loading: true
+  })),
 
+  on(BookActions.loadBooksSuccess, (state, { data: books }) => ({
+    ...state,
+    books,
+    loading: false
+  })),
+
+  on(BookActions.loadBooksFailure, state => ({
+    ...state,
+    books: [],
+    loading: false
+  }))
 );
 
