@@ -35,11 +35,13 @@ export class CreatingComponent {
 
     // Eigenes Observable
 
-    const observable$ = new Observable<string>(obs => {
-      obs.next('😊');
-      obs.next('😍');
-      obs.next('😎');
-      obs.error('🤬');
+    const observable$ = new Observable<string>(subscriber => {
+      subscriber.next('😊');
+      subscriber.next('😍');
+      setTimeout(() => subscriber.next('😎'), 1000);
+      setTimeout(() => subscriber.next('😎'), 2000);
+      setTimeout(() => subscriber.error('🤬'), 500);
+
     });
     observable$.subscribe(observer);
 
